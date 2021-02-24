@@ -1,10 +1,9 @@
 import React from 'react';
+import Main from './components/MainComponent';
 
 const App = () => {
   return (
-    <div>
-      <h1> Hello World </h1>
-    </div>
+    <Main />
   );
 };
 
