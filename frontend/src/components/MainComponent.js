@@ -5,7 +5,7 @@ import Chart from './ChartComponent';
 
 const Main = () => {
   return (
-    <div className="container">
+    <div className="container py-5">
       <Summary />
       <Chart />
     </div>
