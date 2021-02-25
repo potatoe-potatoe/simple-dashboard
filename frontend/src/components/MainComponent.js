@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import { connect } from 'react-redux';
 
 import Summary from './SummaryComponent';
@@ -26,29 +26,11 @@ class Main extends React.Component {
       <div className="bg-light">
         <div className="container py-5">
           <Summary />
-          <Chart data={this.props.data} />
-          {/* <Chart data={getAllData()}/> */}
+          <Chart data={this.props.data.data.data} />
         </div>
       </div>
     );
   }
 }
-
-// const Main = ({props}) => {
-//   useEffect(() => {
-//     props.fetchData();
-//   });
-
-
-//   return (
-//     <div className="bg-light">
-//       <div className="container py-5">
-//         <Summary />
-//         <Chart />
-//         {/* <Chart data={getAllData()}/> */}
-//       </div>
-//     </div>
-//   );
-// };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

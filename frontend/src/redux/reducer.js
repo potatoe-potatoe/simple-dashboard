@@ -1,3 +1,5 @@
+import { DATA_URL } from '../js/constants';
+
 // Action Types
 const DATA_LOADING = 'DATA_LOADING';
 const DATA_FAILED = 'DATA_FAILED';
@@ -38,8 +40,7 @@ export const addData = (data) => ({
 
 export const fetchData = () => (dispatch) => {
   dispatch(dataLoading());
-  let dataUrl = 'https://covid19-api-philippines.herokuapp.com/api/timeline';
-  return fetch(dataUrl)
+  return fetch(DATA_URL)
     .then(res => res.json())
     .then(data => {
       console.log(data);
