@@ -81,7 +81,8 @@ const Summary = () => {
       <div className="row justify-content-center">
         {cardsDataList.map(data => {
           return (
-            <CardItem statLabel={data.statLabel}
+            <CardItem key={data.statLabel}
+                      statLabel={data.statLabel}
                       statNum={data.statNum}
                       faIconClass={data.faIconClass}
                       bgColorClass={data.bgColorClass} />
