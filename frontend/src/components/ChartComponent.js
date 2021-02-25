@@ -39,7 +39,7 @@ const Chart = (props) => {
   return (
     <div className="card mt-3">
       <div className="card-header text-center font-weight-bold">
-        Cumulative Summary Chart
+        Case Overview Time Series Graph
       </div>
       <div className="card-body row">
         <Line data={displayData} options={options} />
