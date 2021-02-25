@@ -1,5 +1,5 @@
 module.exports = {
-  "RGB_BLUE": 'rgb(132, 99, 255)',
-  "RGB_GREEN": 'rgb(132, 255, 99)',
-  "RGB_RED": 'rgb(255, 99, 132)'
+  "RGB_BLUE": 'rgb(2, 117, 216)',
+  "RGB_GREEN": 'rgb(92, 184, 92)',
+  "RGB_RED": 'rgb(217, 83, 79)'
 };

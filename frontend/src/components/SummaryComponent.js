@@ -7,13 +7,35 @@ const dummyData = {
   "deceased": 12129
 };
 
-const CardItem = ({statLabel, statNum, faIconClass}) => {
-  const iconClasses = ['fa', faIconClass, 'fa-lg'];
+let cardsDataList = [
+  {
+    "statLabel": 'CONFIRMED',
+    "statNum": dummyData.confirmed,
+    "faIconClass": 'fa-user-plus',
+    "bgColorClass": 'bg-primary'
+  },
+  {
+    "statLabel": 'RECOVERED',
+    "statNum": dummyData.recovered,
+    "faIconClass": 'fa-medkit',
+    "bgColorClass": 'bg-success'
+  },
+  {
+    "statLabel": 'DECEASED',
+    "statNum": dummyData.deceased,
+    "faIconClass": 'fa-user-times',
+    "bgColorClass": 'bg-danger'
+  }
+];
+
+const CardItem = ({statLabel, statNum, faIconClass, bgColorClass}) => {
+  let iconClasses = ['fa', faIconClass, 'fa-lg'];
+  let footerClasses = 'card-footer text-white small py-2 ' + bgColorClass;
   return (
     <div className="col-4">
       <div className="card">
         <div className="card-body">
-          <div className="row">
+          <div className="row font-weight-bold h3">
             <div className="col-8">
               {statNum.toLocaleString()}
             </div>
@@ -24,7 +46,7 @@ const CardItem = ({statLabel, statNum, faIconClass}) => {
           </div>
         </div>
 
-        <div className="card-footer small text-muted py-2">
+        <div className={footerClasses}>
           {statLabel.toUpperCase()}
         </div>
       </div>
@@ -35,25 +57,17 @@ const CardItem = ({statLabel, statNum, faIconClass}) => {
 const Summary = () => {
   return (
     <React.Fragment>
-      <div className="row justify-content-center">
-        <CardItem statLabel="confirmed"
-                  statNum={dummyData.confirmed}
-                  faIconClass="fa-user-plus"
-                  />
+      <div className="card mb-3">
+        <div className="card-header font-weight-bold h3 bg-white">
+            <span>
+              ACTIVE CASES AS OF TODAY
+            </span>
 
-        <CardItem statLabel="recovered"
-                  statNum={dummyData.recovered}
-                  faIconClass="fa-medkit"
-                  />
-
-        <CardItem statLabel="deceased"
-                  statNum={dummyData.deceased}
-                  faIconClass="fa-user-times"
-                  />
-      </div>
-
-      <div className="card mt-3">
-        <div className="card-body py-2">
+            <span className="float-right">
+              {dummyData.active.toLocaleString()}
+            </span>
+        </div>
+        {/* <div className="card-body py-2 font-weight-bold h3">
           <span>
             ACTIVE CASES
           </span>
@@ -61,7 +75,18 @@ const Summary = () => {
           <span className="float-right">
             {dummyData.active}
           </span>
-        </div>
+        </div> */}
+      </div>
+
+      <div className="row justify-content-center">
+        {cardsDataList.map(data => {
+          return (
+            <CardItem statLabel={data.statLabel}
+                      statNum={data.statNum}
+                      faIconClass={data.faIconClass}
+                      bgColorClass={data.bgColorClass} />
+          );
+        })}
       </div>
     </React.Fragment>
   );

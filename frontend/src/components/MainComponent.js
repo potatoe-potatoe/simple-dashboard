@@ -5,9 +5,11 @@ import Chart from './ChartComponent';
 
 const Main = () => {
   return (
-    <div className="container py-5">
-      <Summary />
-      <Chart />
+    <div className="bg-light">
+      <div className="container py-5">
+        <Summary />
+        <Chart />
+      </div>
     </div>
   );
 };
