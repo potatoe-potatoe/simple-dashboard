@@ -14,6 +14,7 @@
     <tr>
         <th> Front-End </th>
         <td>
+            JavaScript <br />
             React 17.0.1 <br />
             Node v14.15.5 (64-bit)
         </td>
