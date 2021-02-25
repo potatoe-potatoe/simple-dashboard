@@ -27,4 +27,4 @@
 1) Download or clone the repository.
 2) Install `npm` packages.
     * Go to `/frontend` directory and execute: `npm install`.
-3) Go to /frontend directory and execute: `npm start`.
+3) In same directory, execute: `npm start`.
