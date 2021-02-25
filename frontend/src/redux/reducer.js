@@ -43,7 +43,6 @@ export const fetchData = () => (dispatch) => {
   return fetch(DATA_URL)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       dispatch(addData(data));
     })
 };

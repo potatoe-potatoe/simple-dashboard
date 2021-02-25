@@ -1,32 +1,6 @@
 import React from 'react';
 
-const dummyData = {
-  "active": 30970,
-  "confirmed": 566420,
-  "recovered": 523321,
-  "deceased": 12129
-};
-
-let cardsDataList = [
-  {
-    "statLabel": 'CONFIRMED',
-    "statNum": dummyData.confirmed,
-    "faIconClass": 'fa-user-plus',
-    "bgColorClass": 'bg-primary'
-  },
-  {
-    "statLabel": 'RECOVERED',
-    "statNum": dummyData.recovered,
-    "faIconClass": 'fa-medkit',
-    "bgColorClass": 'bg-success'
-  },
-  {
-    "statLabel": 'DECEASED',
-    "statNum": dummyData.deceased,
-    "faIconClass": 'fa-user-times',
-    "bgColorClass": 'bg-danger'
-  }
-];
+import { DATA_URL } from '../js/constants'; 
 
 const CardItem = ({statLabel, statNum, faIconClass, bgColorClass}) => {
   let iconClasses = ['fa', faIconClass, 'fa-lg'];
@@ -54,28 +28,40 @@ const CardItem = ({statLabel, statNum, faIconClass, bgColorClass}) => {
   );
 };
 
-const Summary = () => {
+const Summary = (props) => {
+  let { latestData, latestUpdateDate } = props;
+  let cardsDataList = [
+    {
+      "statLabel": 'CONFIRMED',
+      "statNum": latestData ? latestData.cases : 0,
+      "faIconClass": 'fa-user-plus',
+      "bgColorClass": 'bg-primary'
+    },
+    {
+      "statLabel": 'RECOVERED',
+      "statNum": latestData ? latestData.recovered : 0,
+      "faIconClass": 'fa-medkit',
+      "bgColorClass": 'bg-success'
+    },
+    {
+      "statLabel": 'DECEASED',
+      "statNum": latestData ? latestData.died : 0,
+      "faIconClass": 'fa-user-times',
+      "bgColorClass": 'bg-danger'
+    }
+  ];
+
   return (
     <React.Fragment>
       <div className="card mb-3">
         <div className="card-header font-weight-bold h3 bg-white">
-            <span>
-              ACTIVE CASES AS OF TODAY
-            </span>
-
-            <span className="float-right">
-              {dummyData.active.toLocaleString()}
-            </span>
+          {console.log(latestData)}
+          OVERVIEW OF CASES {latestData.date ? 'AS OF ' + latestData.date : ''}
         </div>
-        {/* <div className="card-body py-2 font-weight-bold h3">
-          <span>
-            ACTIVE CASES
-          </span>
-
-          <span className="float-right">
-            {dummyData.active}
-          </span>
-        </div> */}
+        <div className="card-footer small text-muted py-2">
+          {latestUpdateDate ? 'Last updated on ' + latestUpdateDate + '. ' : ''}
+          Data taken from {DATA_URL}.
+        </div>
       </div>
 
       <div className="row justify-content-center">
