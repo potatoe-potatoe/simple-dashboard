@@ -6,11 +6,11 @@ const CardItem = ({statLabel, statNum, faIconClass, bgColorClass}) => {
   let iconClasses = ['fa', faIconClass, 'fa-lg'];
   let footerClasses = 'card-footer text-white small py-2 ' + bgColorClass;
   return (
-    <div className="col-4">
+    <div className="col-12 col-md-4 mb-3 mb-lg-0">
       <div className="card">
         <div className="card-body">
-          <div className="row font-weight-bold h3">
-            <div className="col-8">
+          <div className="row my-auto font-weight-bold h3">
+            <div className="col-8 col-md-12 col-lg-8">
               {statNum.toLocaleString()}
             </div>
 
