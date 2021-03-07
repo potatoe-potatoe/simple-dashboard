@@ -32,8 +32,8 @@ class Main extends React.Component {
     };
 
     return (
-      <div className="bg-light">
-        <div className="container py-3">
+      <div className="bg-light vh-100"> 
+        <div className="container py-4">
           <Summary latestData={latestData}
                    latestUpdateDate={this.props.data.data.last_update} />
           <Chart data={dataArr} />
