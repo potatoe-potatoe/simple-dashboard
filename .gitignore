@@ -7,3 +7,6 @@ dist/
 
 # local settings
 .vscode
+
+# credentials
+serviceAccountKey.json

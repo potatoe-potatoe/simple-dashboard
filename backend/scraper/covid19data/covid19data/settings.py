@@ -64,7 +64,8 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
 #    'covid19data.pipelines.Covid19DataPipeline': 300,
-   'covid19data.pipelines.MongoDBPipeline': 301
+#    'covid19data.pipelines.MongoDBPipeline': 301,
+   'covid19data.pipelines.FirestorePipeline': 302
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -94,4 +95,10 @@ MONGODB_SETTINGS = {
     'port': 27017,
     'db': 'covid19_dashboard_data',
     'collection': 'cumulative_case_data'
+}
+
+# Firestore connection
+FIRESTORE_SETTINGS = {
+    'creds_file': 'serviceAccountKey.json',
+    'collection': MONGODB_SETTINGS['collection']
 }
