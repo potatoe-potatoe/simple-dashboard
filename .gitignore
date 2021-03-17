@@ -1,2 +1,12 @@
+# modules
 node_modules/
+scrapy-venv
+
+# production deployments
 dist/
+
+# local settings
+.vscode
+
+# credentials
+serviceAccountKey.json
